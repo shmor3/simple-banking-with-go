@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Account</title>
+</head>
+<body>
+    <div id="balance">Balance:</div>
+    <button id="deposit">Deposit</button>
+    <button id="withdraw">Withdraw</button>
+    <script>
+        async function currentBalance() {
+            var req = await fetch("\bbalance").then(r => r.text())
+            document.getElementById("balance").innerHTML = req
+        }
+        currentBalance()
+        document.getElementById("deposit").onclick = async (e) => {
+            var req = await fetch("\deposit").then(r => r.text())
+            document.getElementById("balance").innerHTML = req
+        }
+        document.getElementById("withdraw").onclick = async (e) => {
+            var req = await fetch("\withdraw").then(r => r.text())
+            document.getElementById("balance").innerHTML = req
+        }
+    </script>
+</body>
+</html>
